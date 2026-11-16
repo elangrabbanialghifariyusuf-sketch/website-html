@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi | Profil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <nav class="navbar">
+        <a class="profile" href="beranda.html">
+            <img src="Screenshot 2025-12-19 141627.png" alt="Foto profil">
+            <span>Profil</span>
+        </a>
+        <ul class="menu">
+            <li><a href="beranda.html">Beranda</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <main class="login-main">
+        <section class="login-card" aria-labelledby="register-title">
+            <p class="login-eyebrow">Buat akun baru</p>
+            <h1 id="register-title">Registrasi</h1>
+            <p class="login-description">Isi data berikut untuk membuat akun.</p>
+
+            <form action="proses_register.php" method="post">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="3-30 karakter" minlength="3" maxlength="30" pattern="[-A-Za-z0-9_.]+" autocomplete="username" required>
+
+                <label for="password">Kata sandi</label>
+                <input id="password" name="password" type="password" placeholder="Minimal 8 karakter" minlength="8" autocomplete="new-password" required>
+
+                <label for="confirm-password">Ulangi kata sandi</label>
+                <input id="confirm-password" name="confirm_password" type="password" placeholder="Masukkan ulang kata sandi" minlength="8" autocomplete="new-password" required>
+
+                <button type="submit">Buat akun</button>
+                <p class="register-message" id="register-message" role="status" aria-live="polite"></p>
+                <p class="auth-switch">Sudah punya akun? <a href="login.html">Masuk</a></p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const registerMessage = document.querySelector('#register-message');
+        const query = new URLSearchParams(window.location.search);
+        const messages = {
+            username_taken: 'Username sudah digunakan. Pilih username lain.',
+            invalid: 'Username atau kata sandi tidak memenuhi persyaratan.',
+            password_mismatch: 'Konfirmasi kata sandi tidak cocok.',
+            failed: 'Registrasi gagal. Silakan coba kembali.'
+        };
+
+        if (query.has('success')) {
+            registerMessage.textContent = 'Registrasi berhasil. Silakan login.';
+            registerMessage.classList.add('is-success');
+        } else if (query.has('error')) {
+            registerMessage.textContent = messages[query.get('error')] || messages.failed;
+        }
+    </script>
+</body>
+</html>

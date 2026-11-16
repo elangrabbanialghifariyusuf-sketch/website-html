@@ -1,0 +1,353 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #060606;
+    color: #f5eaea;
+    font-family: "Times New Roman", serif;
+}
+
+.navbar {
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    min-height: 86px;
+    padding: 12px 7%;
+}
+
+.profile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+    transform: translateX(-50px);
+}
+
+.profile img {
+    border-radius: 50%;
+    display: block;
+    height: 42px;
+    object-fit: cover;
+    width: 42px;
+}
+
+.profile span {
+    color: #191919;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.menu {
+    align-items: center;
+    display: flex;
+    gap: 22px;
+    list-style: none;
+}
+
+.menu a {
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: #191919;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+
+.menu a:hover,
+.menu a.active {
+    background-color: orangered;
+    border-color: orangered;
+    color: #ffffff;
+}
+
+.menu a.login-link {
+    background-color: orangered;
+    border: 1px solid orangered;
+    border-radius: 999px;
+    color: #ffffff;
+    padding: 8px 16px;
+}
+
+.menu a.login-link:hover {
+    background-color: #0c0c0c;
+    border-color: #191919;
+    color: #ffffff;
+}
+
+main {
+    min-height: calc(100vh - 86px);
+    padding: 100px 7%;
+    text-align: center;
+}
+
+main h1 {
+    margin-bottom: 12px;
+}
+
+.login-page {
+    background: #000000;
+    isolation: isolate;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.login-page::before {
+    background:
+        radial-gradient(circle at 18% 24%, rgba(78, 72, 70, 0.5), transparent 32%),
+        radial-gradient(circle at 82% 72%, rgba(255, 255, 255, 0.2), transparent 28%),
+        radial-gradient(circle at 50% 20%, #252525 0, #000000 56%);
+    content: "";
+    filter: blur(24px);
+    inset: -32px;
+    position: fixed;
+    transform: scale(1.08);
+    z-index: -1;
+}
+
+.login-page .navbar {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    left: 2%;
+    position: fixed;
+    right: 2%;
+    top: 16px;
+    z-index: 10;
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.login-main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 20px;
+    position: relative;
+    text-align: left;
+    z-index: 1;
+}
+
+.login-card {
+    background: #ffffff;
+    border-radius: 16px;
+    color: #191919;
+    max-width: 430px;
+    padding: 38px;
+    width: 100%;
+}
+
+.login-eyebrow {
+    color: orangered;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.login-card h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.login-description {
+    color: #fffdfd;
+    margin-bottom: 28px;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.login-card form > label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.login-card input[type="text"],
+.login-card input[type="email"],
+.login-card input[type="password"],
+.password-field input {
+    border: 1px solid #cfcfcf;
+    border-radius: 7px;
+    color: #191919;
+    font: inherit;
+    padding: 12px 13px;
+    width: 100%;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    color: #777777;
+    display: flex;
+    height: 42px;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 1px;
+    width: 38px;
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+    background: transparent;
+    border: 0;
+    color: rgb(252, 250, 249);
+    outline: none;
+}
+
+.eye-icon {
+    height: 19px;
+    width: 19px;
+}
+
+.eye-closed {
+    display: none;
+}
+
+.password-toggle.is-visible .eye-open {
+    display: none;
+}
+
+.password-toggle.is-visible .eye-closed {
+    display: block;
+}
+
+.login-card input[type="text"]:focus,
+.login-card input[type="email"]:focus,
+.login-card input[type="password"]:focus,
+.password-field input:focus {
+    border-color: rgb(255, 255, 255);
+    outline: 2px solid rgba(255, 69, 0, 0.18);
+}
+
+.form-options {
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    justify-content: space-between;
+    margin: 8px 0 14px;
+}
+
+.remember-option {
+    align-items: center;
+    display: flex;
+    gap: 7px;
+}
+
+.remember-option input {
+    accent-color: orangered;
+}
+
+.form-options a {
+    color: orangered;
+    text-decoration: none;
+}
+
+.form-options a:hover {
+    text-decoration: underline;
+}
+
+.login-card form > button[type="submit"] {
+    background: orangered;
+    border: 1px solid orangered;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    padding: 12px;
+    transition: background-color 300ms ease, border-color 300ms ease;
+}
+
+.login-card form > button[type="submit"]:hover {
+    background: #191919;
+    border-color: #191919;
+}
+
+.login-message {
+    color: #555555;
+    font-size: 13px;
+    min-height: 18px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 5%;
+    }
+
+    .menu {
+        gap: 12px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+
+    .menu a.login-link {
+        padding: 7px 10px;
+    }
+
+    .login-card {
+        padding: 28px 22px;
+    }
+}
+
+.auth-switch {
+    color: #555555;
+    font-size: 13px;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: orangered;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.register-message {
+    color: #a32616;
+    font-size: 13px;
+    min-height: 18px;
+    text-align: center;
+}
+
+.register-message.is-success {
+    color: #257443;
+}
+
+.dashboard-page {
+    background: #000000;
+    isolation: isolate;
+    overflow-x: hidden;
+    position: relative;
+}

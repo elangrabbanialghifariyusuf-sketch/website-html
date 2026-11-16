@@ -1,0 +1,3 @@
+ALTER TABLE login
+    MODIFY username VARCHAR(30) NOT NULL,
+    MODIFY password VARCHAR(255) NOT NULL;
