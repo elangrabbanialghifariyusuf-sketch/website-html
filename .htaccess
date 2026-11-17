@@ -1,1 +1,7 @@
-DirectoryIndex login.html
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(config|database|includes|Koneksi)/ - [F,L]
+</IfModule>

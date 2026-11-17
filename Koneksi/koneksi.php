@@ -1,11 +1,2 @@
 <?php
-$host = "localhost";
-$user = "root";
-$password = "";
-$db = "hayatisayang";
-$conn = mysqli_connect($host, $user, $password, $db);
-if(!$conn) {
-    die("Koneksi gagal: ".mysqli_connect_error());
-}
-
-?>
+require_once __DIR__ . "/../config/koneksi.php";
