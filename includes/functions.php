@@ -32,6 +32,16 @@ function e(mixed $value): string
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, "UTF-8");
 }
 
+function app_path(string $path): string
+{
+    $directory = str_replace("\\", "/", dirname($_SERVER["SCRIPT_NAME"] ?? "/"));
+    if (in_array(basename($directory), ["admin", "kasir"], true)) {
+        $directory = dirname($directory);
+    }
+
+    return rtrim($directory, "/") . "/" . ltrim($path, "/");
+}
+
 function csrf_token(): string
 {
     if (empty($_SESSION["csrf_token"])) {
